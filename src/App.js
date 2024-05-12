@@ -11,17 +11,25 @@ function App() {
   useEffect(() => {
     // Advanced Matching
     const advancedMatching = {}; 
-    // Опции для конфигурации пикселя
+    // Options for pixel configuration
     const options = {
-      autoConfig: true,  // set to true if you want automatic configuration
-      debug: false,      // enable logs for debugging
+      autoConfig: true,  // set to true for automatic configuration
+      debug: false,       // enable logs for debugging purposes
     };
-    // Инициализация Facebook Pixel
-    ReactPixel.init('2211111362560772', advancedMatching, options);
-     ReactPixel.init('991914002498057', advancedMatching, options);
-     ReactPixel.init('3309982329295012', advancedMatching, options);
-    
-    ReactPixel.pageView(); // Отправить событие просмотра страницы
+    // Array of Facebook Pixel IDs
+    const pixelIds = [
+      '2211111362560772',
+      '991914002498057',
+      '3309982329295012'
+    ];
+
+    // Initialize each Facebook Pixel
+    pixelIds.forEach(pixelId => {
+      ReactPixel.init(pixelId, advancedMatching, options);
+    });
+
+    // Send page view event
+    ReactPixel.pageView();
   }, []);
 
   return (
