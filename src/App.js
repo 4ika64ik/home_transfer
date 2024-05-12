@@ -18,6 +18,9 @@ function App() {
     };
     // Инициализация Facebook Pixel
     ReactPixel.init('2211111362560772', advancedMatching, options);
+     ReactPixel.init('991914002498057', advancedMatching, options);
+     ReactPixel.init('3309982329295012', advancedMatching, options);
+    
     ReactPixel.pageView(); // Отправить событие просмотра страницы
   }, []);
 
